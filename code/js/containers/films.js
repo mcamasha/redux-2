@@ -17,13 +17,13 @@ class Films extends Component {
         }
         return (
             <div>
-                <p>{this.showlist()}</p>
+                {this.showlist()}
             </div>
         );
     }
 }
 
-function mapStateToProps(state) { //чтобы можно было брать из хранилища 
+function mapStateToProps(state) {  
     return {
         films: state.sendRequest[state.sendRequest.length - 1]
     };

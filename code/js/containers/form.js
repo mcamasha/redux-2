@@ -53,7 +53,7 @@ class Form extends Component {
     render() {
         return (
             <div>
-                <input value={this.state.input} onChange={(e) => this.handleChange(e)} />
+                <input value={this.state.input} onChange={this.handleChange} />
                 <button onClick={() => this.props.click(this.state.films)}>Click</button>
                 <div> {this.state.films} </div>
             </div>
@@ -67,9 +67,4 @@ function matchDispatchToProps(dispatch) {
     }, dispatch);
 }
 
-function mapStateToProps(state) {
-    return {
-    };
-}
-
-export default connect(mapStateToProps, matchDispatchToProps)(Form);
+export default connect(null, matchDispatchToProps)(Form);
