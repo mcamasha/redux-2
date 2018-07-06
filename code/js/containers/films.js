@@ -25,7 +25,7 @@ class Films extends Component {
 
 function mapStateToProps(state) { //чтобы можно было брать из хранилища 
     return {
-        films: state.active // это из reducers/index.js
+        films: state.sendRequest 
     };
 }
 

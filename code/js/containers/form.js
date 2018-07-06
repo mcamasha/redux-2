@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { select } from '../actions/index';
 import { click } from '../actions/click';
 import axios from 'axios';
 
@@ -11,7 +10,7 @@ function Option(props) {
     return <div><a href="#">{props.value}</a></div>;
 }
 
-class Form extends Component { // компонент будет выводить данные, которые лежат в store
+class Form extends Component { 
 
     constructor(props) {
         super(props);
@@ -51,14 +50,6 @@ class Form extends Component { // компонент будет выводить
         }
     }
 
-    //    showList() {
-    //        return this.props.cars.map((car) => {
-    //          return (
-    //            <li onClick={() => this.props.select(car)} key={car.id}>{car.model}</li> // вы
-    //      );
-    //});
-    //    }
-
     render() {
         return (
             <div>
@@ -72,14 +63,12 @@ class Form extends Component { // компонент будет выводить
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
-        select: select,
         click: click
     }, dispatch);
 }
 
 function mapStateToProps(state) {
     return {
-        cars: state.cars
     };
 }
 

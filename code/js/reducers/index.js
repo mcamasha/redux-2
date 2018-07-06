@@ -1,11 +1,8 @@
 import {combineReducers} from 'redux';
-import CarsReducers from './car';
-import ActiveCar from './car-active';
+import SendRequest from './send-request';
 
 const allReducers = combineReducers ({
-    cars: CarsReducers, //request: RequestReducers
-    //films: FilmsReducers
-    active: ActiveCar
+    sendRequest: SendRequest
 });
 
 export default allReducers;
