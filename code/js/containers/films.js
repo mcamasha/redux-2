@@ -12,7 +12,7 @@ class Films extends Component {
     }
 
     render() {
-        if (!this.props.films.length) {
+        if (!this.props.films || !this.props.films.length) {
             return (<p>Фильмов не найдено</p>);
         }
         return (
@@ -25,7 +25,7 @@ class Films extends Component {
 
 function mapStateToProps(state) { //чтобы можно было брать из хранилища 
     return {
-        films: state.sendRequest 
+        films: state.sendRequest[state.sendRequest.length - 1]
     };
 }
 
