@@ -12,6 +12,15 @@ const Option = ({ value: { title } }) => {
     );
 }
 
+const Button = ({text, callback, args}) => {
+    const callbackWithArgs = () => {
+        callback(args);
+    };
+    return (
+        <button onClick={callbackWithArgs}>{text}</button>
+    );
+}
+
 class Form extends Component {
 
     constructor(props) {
@@ -61,7 +70,7 @@ class Form extends Component {
         return (
             <div>
                 <input value={this.state.input} onChange={(e) => this.handleChange(e)} />
-                <button onClick={() => this.props.showFilms(this.state.films)}>Click</button>
+                <Button text='Search' callback={this.props.showFilms} args={this.state.films}/>
                 <div> {this.state.isLoading ? "Идет загрузка..." : this.state.films} </div>
             </div>
         );
