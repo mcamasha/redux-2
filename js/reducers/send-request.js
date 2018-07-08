@@ -3,7 +3,7 @@ export default function (state = [], action) {
         case "SEND_REQUEST":
             return [
                 ...state,
-                action.films
+                action.payload
             ];
         default:
             return state;

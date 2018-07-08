@@ -6,8 +6,10 @@ import axios from 'axios';
 
 const API_KEY = '37662c76ffc19e5cd1b95f37d77155fc';
 
-function Option(props) {
-    return <div><a href="#">{props.value}</a></div>;
+const Option = ({value: {title}}) => {
+    return (
+        <div><a href="#">{title}</a></div>
+    );
 }
 
 class Form extends Component { 
@@ -30,7 +32,7 @@ class Form extends Component {
                 .then((response) => {
                     response.data.results.forEach(function (item) {
                         if (item.title.toLowerCase().search(value.toLowerCase()) !== -1) {
-                            const element = <Option value={item.title} />;
+                            const element = <Option value={item} key={item.id}/>;
                             foundOptions.push(element);
                         }
                         self.setState({

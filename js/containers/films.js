@@ -6,7 +6,7 @@ class Films extends Component {
     showlist() {
         return this.props.films.map((film) => {
             return (
-                <p>{film.props.value}</p>
+                <p key={film.props.value.id}>{film.props.value.title}</p>
             );
         });
     }
